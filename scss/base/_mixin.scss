@@ -1,0 +1,247 @@
+// Position Properties
+// ==========================================================
+@mixin absolute($val: '') {
+    @include position(absolute, $val);
+}
+
+@mixin fixed($val: '') {
+    @include position(fixed, $val);
+}
+
+@mixin relative($val: '') {
+    @include position(relative, $val);
+}
+
+// Border Mixin
+// ==========================================================
+@mixin border-dir($direction, $width, $style, $color) {
+    border-#{$direction}: $width $style $color;
+}
+@mixin border($width, $style, $color) {
+    border: $width $style $color;
+}
+
+// Border Radius Mixin
+// ==========================================================
+@mixin border-radius-all($r) {
+    border-radius: $r;
+}
+@mixin border-radius($tl:null, $tr:null, $br:null, $bl:null) {
+    border-top-left-radius: $tl;
+    border-top-right-radius: $tr;
+    border-bottom-right-radius: $br;
+    border-bottom-left-radius: $bl;
+}
+
+// Flexbox display
+// ==========================================================
+@mixin flex($display:false, $inline-flex:false, $align-items:false, $flex-flow:false, $justify-content:false, $align-content:false, $flex:false) {
+    @if $display {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+    @if $inline-flex {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+    }
+    @if $flex-flow {
+        -webkit-flex-flow: $flex-flow;
+        -moz-flex-flow: $flex-flow;
+        -ms-flex-flow: $flex-flow;
+        flex-flow: $flex-flow;
+    }
+    @if $align-items {
+        align-items: $align-items;
+    }
+    @if $justify-content {
+        -webkit-justify-content: $justify-content;
+        -moz-justify-content: $justify-content;
+        -ms-justify-content: $justify-content;
+        justify-content: $justify-content;
+        -ms-flex-pack: $justify-content;
+    }
+    @if $align-content {
+        -webkit-align-content: $align-content;
+        -moz-align-content: $align-content;
+        -ms-align-content: $align-content;
+        align-content: $align-content;
+    }
+    @if $flex {
+        -webkit-box-flex: $flex;
+        -moz-box-flex: $flex;
+        -webkit-flex: $flex;
+        -ms-flex: $flex;
+        flex: $flex;
+    }
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+// ==========================================================
+@mixin align-items($align) {
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+    align-items: $align;
+}
+
+// mixin global background-image
+// ==========================================================
+$global-path: '../images/';
+@mixin global-bg-image($img, $background-position, $background-size) {
+  background-image: url('#{$global-path}#{$img}');
+  background-repeat: no-repeat;
+  background-position: $background-position;
+  background-size: $background-size;
+}
+
+// position
+// =======================================================
+$position-props: top right bottom left z-index;
+
+@mixin position($position, $val) {
+    position: $position;
+
+    @each $props in $position-props {
+        $i: index($val, $props);
+        @if $i and $i + 1 <= length($val) and type-of(nth($val, $i + 1)) == number {
+            #{$props}: nth($val, $i + 1);
+        }
+    }
+}
+
+// position properties
+// ==========================================================
+@mixin absolute($val: '') {
+    @include position(absolute, $val);
+}
+
+@mixin fixed($val: '') {
+    @include position(fixed, $val);
+}
+
+@mixin relative($val: '') {
+    @include position(relative, $val);
+}
+
+// mixins center
+// ======================================================
+@mixin horizontal-center {
+    @include absolute(left 50%);
+    @include translateX(-50%);
+}
+@mixin vertical-center {
+    @include absolute(top 50%);
+    @include translateY(-50%);
+}
+
+// Alignment @mixin
+// ==========================================================
+@mixin align($vertical: true, $horizontal: false, $position: relative) {
+    @if $position {
+        position: $position;
+    }
+    @if $vertical {
+        top: 50%;
+    }
+    @if $horizontal {
+        left: 50%;
+    }
+
+    @if $vertical and $horizontal {
+        transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+    } @else if $vertical {
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+    } @else {
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+    }
+}
+
+// transform
+// =======================================================
+@mixin translateY($transforms...) {
+    -webkit-transform: translateY($transforms);
+    -moz-transform: translateY($transforms);
+    -ms-transform: translateY($transforms);
+    transform: translateY($transforms);
+}
+@mixin translateX($transforms...) {
+    -webkit-transform: translateX($transforms);
+    -moz-transform: translateX($transforms);
+    -ms-transform: translateX($transforms);
+    transform: translateX($transforms);
+}
+@mixin transform($transforms...) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    transform: $transforms;
+}
+// Transition
+// =======================================================
+@mixin transition {
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+}
+
+// mixin appearance
+// ==========================================================
+@mixin appearance($appearance) {
+    -webkit-appearance: $appearance;
+    -moz-appearance: $appearance;
+    -ms-appearance: $appearance;
+    appearance: $appearance;
+}
+
+// Aspect Ratio
+// =======================================================
+@mixin aspect-ratio($arglist... /*$ratio or $width, $height*/){
+    $map : keywords($arglist);
+    $height: map-get($map, height) or nth-value($arglist, 2);
+    $width:  map-get($map, width)  or nth-value($arglist, 1);
+    $ratio:  map-get($map, ratio)  or if($width and $height, $width/$height, nth-value($arglist, 1)) or 1;
+    $padding: 1/$ratio * 100%;
+    &::before, &::after { content: ''; display: table; clear: both; width:1px; margin-left:-1px; }
+    &::before { float: left; padding-bottom: $padding; }    
+}
+
+// Helper function 
+// Return null rather than throwing an error if index is outside list range.    
+@function nth-value($list, $index) {
+  @return if(length($list) >= $index, nth($list, $index), null);
+}    
+
+// // Fonts
+// // =======================================================
+
+// fontSize
+@mixin fontSize($n){
+    font-size: #{$n / $base-fs}rem
+}
+   
+// How to include font sizes
+// @include fontSize(26);
+
+//Convert px to rem
+@function Rem($size) {
+    $remSize: $size / 16;
+    @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+    font-size: #{$size}px;
+    font-size: Rem($size);
+}

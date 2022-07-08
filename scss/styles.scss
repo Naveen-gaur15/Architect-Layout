@@ -1,0 +1,24 @@
+// ========================
+
+// BOOTSTRAP FILE IMPORTED HERE 
+@import "vendors/bootstrap";
+@import "vendors/bootstrap-grid";
+@import "vendors/bootstrap-reboot";
+@import "vendors/bootstrap-utilities";
+
+// BASE FILE IMPORTED HERE 
+@import 'base/variable';
+@import 'base/mixin';
+@import 'base/fonts';
+ 
+// COMPONENTS FILE IMPORTED HERE 
+@import 'components/header';
+
+// SETUP FILE IMPORTED HERE
+@import 'setup/normalize';     
+
+// ALL PAGES IMPORTED HERE
+@import 'pages/home-page';
+
+// ========================
+

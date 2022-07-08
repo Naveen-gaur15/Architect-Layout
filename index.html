@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>:: Architect Layout ::</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Header section start -->
+  <header class="header" id="header">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- logo -->
+        <div class="header__logo">
+          <a href="#" title="Visit the Arctit Home Page" aria-label="Click here to visit the Arctit Home Page">
+            <img src="images/logo.png" alt="website logo">
+          </a>
+        </div>
+        <!-- Menu btn -->
+        <div class="header__right">
+          <button id="menu_open" class="header__right--menu_btn" type="button" onclick="navMenuOpen()">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+          </button>
+        </div>
+      </div>
+      <!-- Menu Links -->
+      <div class="header__menu d-flex align-items-center" id="nav_menu">
+        <ul>
+          <li>
+            <a class="menu-link" href="#" title="Visit the Home Page" aria-label="Click here to visit Home Page">Home</a>
+          </li>
+          <li>
+            <a class="menu-link" href="#" title="Visit the About Page" aria-label="Click here to visit Aboutt Page">About</a>
+          </li>
+          <li>
+            <a class="menu-link" href="#" title="Visit the Project Page" aria-label="Click here to visit Project Page">Project</a>
+          </li>
+          <li>
+            <a class="menu-link" href="#" title="Visit the Contact Page" aria-label="Click here to visit Contact Page">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slider Section Start -->
+  <section class="slider">
+    <div class="container-fluid">
+      <!-- Report Content Section-->
+      <div class="slider__content">
+        <h1 class="carousel">
+          <span class="item main">BUILD WITH <br>NEXT GENERATION<br> OF ARCHITECT</span>
+          <span class="item">BUILD WITH <br>NEXT GENERATION<br> OF Design</span>
+          <span class="item">BUILD WITH <br>NEXT GENERATION<br> OF ARCHITECT2</span>
+        </h1>
+        <div class="slider__content--arrow text-end navigation">
+          <button class="arrow-btn next nav-btn" type="button">
+            <img src="images/left_arrow.png" alt="Left Arrow Icon" title="Left Arrow Icon">
+          </button>
+          <button class="arrow-btn prev nav-btn" type="button">
+            <img src="images/right_arrow.png" alt="right Arrow Icon" title="right Arrow Icon">
+          </button>
+        </div>
+        <div class="slider__content--shape"></div>
+      </div>
+    </div>  
+  </section>
+
+  <!-- JS -->
+  <script src="./js/js.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/custom.js"></script>
+
+</body>
+
+</html>

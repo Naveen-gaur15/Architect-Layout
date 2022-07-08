@@ -1,0 +1,113 @@
+// Slider Section Scss Start
+// ===============================
+.slider {
+    @include global-bg-image("banner_img.png", center, cover);
+    @include relative();
+    background-color: $black;
+    padding:Rem(114) Rem(10) Rem(32) Rem(10);
+
+    @include media-breakpoint-up(xxl) {
+        padding:Rem(194) Rem(33) Rem(52) Rem(33);
+    }
+
+    @include media-breakpoint-down(md) {
+        padding:Rem(95) Rem(0) Rem(42) Rem(0);
+    }
+
+    &__content {
+        padding: Rem(54) Rem(28) Rem(54) Rem(130);
+        @include relative();
+
+        @include media-breakpoint-up(xxl) {
+            padding: Rem(114) Rem(78) Rem(114) Rem(210);
+        }
+
+        @include media-breakpoint-down(md) {
+            padding: Rem(34) Rem(0) Rem(34) Rem(80);
+        }
+
+        @include media-breakpoint-down(sm) {
+            padding: Rem(20) Rem(30) Rem(20) Rem(30);
+        }
+
+        h1 {
+            color:$white;
+            font-size: Rem(65);
+            letter-spacing: Rem(3);
+            line-height: Rem(78);
+            margin-bottom: Rem(35);
+            text-transform: uppercase;
+            @include relative();
+            z-index: 1;
+
+            @include media-breakpoint-up(xxl) {
+                font-size: Rem(90);
+                letter-spacing: Rem(5);
+                line-height: Rem(109);
+                margin-bottom: Rem(65);
+            }
+
+            @include media-breakpoint-down(lg) {
+                font-size: Rem(45);
+                line-height: Rem(60);
+                margin-bottom: Rem(25);
+            }
+
+            @include media-breakpoint-down(lg) {
+                font-size: Rem(30);
+                line-height: Rem(44);
+            }
+        }
+
+        .item {
+            display: none;
+        }
+
+        .item.main {
+            display: block;
+        }
+
+        &--arrow
+        .arrow-btn {
+            background-color: transparent;
+            border:none;
+
+            @include media-breakpoint-down(md) {
+                @include relative();
+                z-index: 1;
+            }
+
+            img {
+                @include media-breakpoint-down(lg) {
+                    max-width: Rem(25);
+                }
+            }
+        }
+
+        &--shape {
+            @include absolute(top 0 left 0);
+            background-color: $blacklight;
+            width: Rem(630);
+            height: Rem(355);
+            opacity: 0.8;
+            clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
+
+            @include media-breakpoint-up(xxl) {
+                width: Rem(910);
+                height: Rem(554);
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: Rem(490);
+                height: Rem(290);
+            }
+
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                height: 100%;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+    }
+
+}
